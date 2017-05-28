@@ -6,10 +6,10 @@ RUN apk update \
     && apk add --no-cache openjdk8-jre
 
 # 2. Create minecraft user
-RUN mkdir -p /home/minecraft
+RUN mkdir -p /home/minecraft /data /plugins
 RUN addgroup -g 1000 minecraft \
     && adduser -h /home/minecraft -s /bin/sh -G minecraft -D -u 1000 minecraft
-RUN chown minecraft:minecraft /home/minecraft
+RUN chown minecraft:minecraft /home/minecraft /data /plugins
 USER minecraft
 WORKDIR /home/minecraft
 
@@ -23,4 +23,5 @@ RUN touch eula.txt \
 EXPOSE 25565
 
 # 5. Start minecraft-server
+# TODO Allocate memory to the server
 CMD ["java", "-jar", "minecraft-server.jar", "nogui"]
