@@ -22,9 +22,6 @@ RUN touch eula.txt \
     && echo "eula=TRUE" >> eula.txt
 EXPOSE 25565
 
-# Set up world volume
-VOLUME /home/minecraft/world
-
 # Start minecraft-server
 # TODO Allocate memory to the server
 CMD ["java", "-jar", "minecraft-server.jar", "nogui"]
