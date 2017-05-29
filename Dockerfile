@@ -23,5 +23,4 @@ RUN touch eula.txt \
 EXPOSE 25565
 
 # Start minecraft-server
-# TODO Allocate memory to the server
-CMD ["java", "-jar", "minecraft-server.jar", "nogui"]
+CMD ["java", "-Xms1G", "-Xmx4G", "-jar", "minecraft-server.jar", "nogui"]
