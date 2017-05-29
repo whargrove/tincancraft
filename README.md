@@ -12,4 +12,4 @@ First create a data volume
 
 Then run the container to start the server
 
-	docker run -d -p 25565:25565 -v world:/home/minecraft/world minecraft-base --name minecraft-base
+	docker run --name minecraft-base -d -p 25565:25565 -v world:/home/minecraft/world minecraft-base
